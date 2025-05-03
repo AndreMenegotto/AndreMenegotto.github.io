@@ -1,0 +1,334 @@
+---
+title: "Publications"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+```
+
+
+<!-- Comandos para estruturar a página -->
+
+<style>
+.article {
+  display: grid;
+  grid-row-gap: 0.4em;
+  grid-column-gap: 2.5em;
+  grid-template-columns: 1fr 4em 4em;
+  margin-bottom: 1em;
+  max-width: 100%;
+}
+
+.article > *:nth-child(1) {
+  margin-right: 3em; /* Adiciona um espaçamento maior entre a primeira e a segunda coluna */
+}
+
+span.a1 {
+  color: #003366;
+    font-size: 20px;
+}
+
+span.a2 {
+  color: #000066;
+  line-height: 250%;
+  vertical-align: bottom;
+  opacity: 0.5;
+}
+
+.a2:hover {
+  opacity: 1.0 !important;
+}
+
+a:link {
+  border: none;
+  text-decoration: none;
+}
+
+a:hover {
+  color: grey;
+  border-bottom: none !important;
+}
+
+p.space {
+  line-height: 125%;
+  font-size: 15px;
+  text-align: justify;
+}
+
+</style>
+
+
+<!-- Comando necessário para visualizar o badge do dimensions e altmetrics -->
+<script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+
+<!-- 
+Este texto está comentado 
+e não aparecerá no HTML gerado 
+-->
+
+
+<!--
+## Preprints
+
+```{r, results='asis', echo=FALSE}
+
+### Function
+generate_article_html <- function(title, authors, journal, 
+year, doi, repository_link = NULL) {
+  # Criar simple doi (para badges)
+  simple_doi <- gsub(pattern = "https://doi.org/", replacement = "", x = doi)
+  
+  # Organizar autoria
+  if(F){authors <- gsub("[.]","",authors)} # remover pontos
+  if(F){sapply(lapply(strsplit(authors, " "), rev), paste, collapse = " ")} # inverter ordem do sobrenome
+  if(F)
+  {
+    pos <- grep("Menegotto|Domingos",authors)
+    authors[pos] <- paste("<b>",authors[pos],"</b>",sep = "")
+  }
+  authors <- paste(authors, collapse = ", ") # agregar nomes
+
+  # Construir o HTML
+  html <- paste0(
+    '<div class="article">',
+    '<p class="space"><span class="a1"><a href="', doi, '" target="_blank">',
+    title, '</a></span><br>',
+    authors, '. <i>', journal, '</i>, ', year, '.<br>',
+    if (!is.null(repository_link))
+    {
+      paste0('<span class="a2"><a href="', repository_link, '" target="_blank">',
+             '<img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>')
+    }
+    else
+    {
+      "<br><br>"
+    },
+    '</p>',
+    '<span class="__dimensions_badge_embed__" data-doi="', simple_doi, '" data-style="small_circle"></span>',
+    '<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="', simple_doi, '"></span>',
+    '</div>'
+  )
+  return(html)
+}
+
+
+### Articles
+cat(article_html <- generate_article_html(
+  title = "Fundamental questions in meiofauna—how small but ubiquitous animals can help to better understand Nature",
+  authors = c("A. Martínez","S. Bonaglia","M. Di Domenico","G. Fonseca","J. Ingels","K.M. Jörger","C. Laumer","F. Leasi","D. Zeppilli","E. Baldrighi","H. Bik","D. Cepeda","M. Curini-Galletti","A.D. Cutter","G. Santos","S. Fattorini","D. Frisch","S. Gollner","U. Jondelius","A. Kerbl","K.M. Kocot","N. Majdi","S. Mammola","J.M. Martín-Durán","A. Menegotto","P.A. Montagna","F.J.A. Nascimento","N. Puilandre","A. Rognant","N. Sánchez","I. Santos","A. Schmidt-Rhaesa","M. Schratzberger","F. Semprucci","M. Shimabukuro","P.J. Somerfield","T.H. Struck","M.V. Sørensen","A. Wallberg","K. Worsaae","H. Yamasaki","D. Fontaneto"),
+  journal = "EcoEvoRxiv",
+  year = 2023,
+  doi = "https://doi.org/10.32942/X2WP43",
+  repository_link = "https://osf.io/3jgf8/"
+))
+```
+-->
+
+
+## Peer-reviewed publications
+
+```{r, results='asis', echo=FALSE}
+
+### Function
+generate_article_html <- function(title, authors, journal, volume, pages, year, doi, repository_link = NULL) {
+  # Criar simple doi (para badges)
+  simple_doi <- gsub(pattern = "https://doi.org/", replacement = "", x = doi)
+  
+  # Organizar autoria
+  if(F){authors <- gsub("[.]","",authors)} # remover pontos
+  if(F){sapply(lapply(strsplit(authors, " "), rev), paste, collapse = " ")} # inverter ordem do sobrenome
+  if(F)
+  {
+    pos <- grep("Menegotto|Domingos",authors)
+    authors[pos] <- paste("<b>",authors[pos],"</b>",sep = "")
+  }
+  authors <- paste(authors, collapse = ", ") # agregar nomes
+
+  # Construir o HTML
+  html <- paste0(
+    '<div class="article">',
+    '<p class="space"><span class="a1"><a href="', doi, '" target="_blank">',
+    title, '</a></span><br>',
+    authors, '. <i>', journal, '</i>, v. ', volume, ', p. ', pages, ', ', year, '.<br>',
+    if (!is.null(repository_link))
+    {
+      paste0('<span class="a2"><a href="', repository_link, '" target="_blank">',
+             '<img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>')
+    }
+    else
+    {
+      "<br><br>"
+    },
+    '</p>',
+    '<span class="__dimensions_badge_embed__" data-doi="', simple_doi, '" data-style="small_circle"></span>',
+    '<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="', simple_doi, '"></span>',
+    '</div>'
+  )
+  return(html)
+}
+
+
+### Articles
+cat(article_html <- generate_article_html(
+  title = "Fundamental questions in meiofauna research highlight how small but ubiquitous animals can improve our understanding of Nature",
+  authors = c("A. Martínez","S. Bonaglia","M. Di Domenico","G. Fonseca","J. Ingels","K.M. Jörger","C. Laumer","F. Leasi","D. Zeppilli","E. Baldrighi","H. Bik","D. Cepeda","M. Curini-Galletti","A.D. Cutter","G. Santos","S. Fattorini","D. Frisch","S. Gollner","U. Jondelius","A. Kerbl","K.M. Kocot","N. Majdi","S. Mammola","J.M. Martín-Durán","A. Menegotto","P.A. Montagna","F.J.A. Nascimento","N. Puillandre","A. Rognant","N. Sánchez","I.R. Santos","A. Schmidt-Rhaesa","M. Schratzberger","F. Semprucci","M. Shimabukuro","P.J. Somerfield","T.H. Struck","M.V. Sørensen","A. Wallberg","K. Worsaae","H. Yamasaki","D. Fontaneto"),
+  journal = "Communications Biology",
+  volume = 8,
+  pages = 449,
+  year = 2025,
+  doi = "https://doi.org/10.1038/s42003-025-07888-1",
+  repository_link = "https://doi.org/10.17605/OSF.IO/7G2QX"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "Sampling Simulation in a Virtual Ocean Reveals Strong Sampling Effect in Marine Diversity Patterns",
+  authors = c("A. Menegotto","D.P. Tittensor","R.K. Colwell","T.F. Rangel"),
+  journal = "Global Ecology and Biogeography",
+  volume = 34,
+  pages = "e13952",
+  year = 2025,
+  doi = "https://doi.org/10.1111/geb.13952",
+  repository_link = "https://doi.org/10.5281/zenodo.14501756"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "Shallow coverage in shallow waters: the incompleteness of intertidal species inventories in biodiversity database records",
+  authors = c("J. Thyrring","L.S. Peck","M.K. Sejr","J.M. Węsławski","C.D.G. Harley","A. Menegotto"),
+  journal = "Ecography",
+  volume = 2024,
+  pages = "e07006",
+  year = 2024,
+  doi = "https://doi.org/10.1111/ecog.07006",
+  repository_link = "https://doi.org/10.5281/zenodo.13128761"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "Island biodiversity in peril: Anticipating a loss of mammals' functional diversity with future species extinctions",
+  authors = c("S. Llorente-Culebras","C.P. Carmona","W.D. Carvalho","A. Menegotto","R. Molina-Venegas","R.J. Ladle","A.M.C. Santos"),
+  journal = "Global Change Biology",
+  volume = 30,
+  pages = "e17375",
+  year = 2024,
+  doi = "https://doi.org/10.1111/gcb.17375",
+  repository_link = "https://doi.org/10.5281/zenodo.11220273"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "Landscape dynamics and diversification of the megadiverse South American freshwater fish fauna",
+  authors = c("F.A.S. Cassemiro","J.S. Albert","A. Antonelli","A. Menegotto","R.O. Wüest","F. Cerezer","M.T.P. Coelho","R.E. Reis","M. Tan","V. Tagliacollo","D. Bailly","V.F.B. Silva","A. Frota","W.J. Graça","R. Ré","T. Ramos","A.G. Oliveira","M.S. Dias","R.K. Colwell","T.F. Rangel","C.H. Graham"),
+  journal = "Proceedings of the National Academy of Sciences",
+  volume = 120,
+  pages = "e2211974120",
+  year = 2023,
+  doi = "https://doi.org/10.1073/pnas.2211974120",
+  repository_link = "https://doi.org/10.5281/zenodo.6672927"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "Carbon budget trends in octocorals: a literature review with data reassessment and a conceptual framework to understand their resilience to environmental changes",
+  authors = c("P. Derviche","A. Menegotto","P.C. Lana"),
+  journal = "Marine Biology",
+  volume = 169,
+  pages = 159,
+  year = 2022,
+  doi = "https://doi.org/10.1007/s00227-022-04146-4",
+  repository_link = "https://github.com/pderviche/Octocoral-feeding-ecology"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "A new look at the potential role of marine plastic debris as a global vector of toxic benthic algae",
+  authors = c("I.P. Leite","A. Menegotto","P.C. Lana","L.L. Mafra-Jr"),
+  journal = "Science of The Total Environment",
+  volume = 838,
+  pages = 156262,
+  year = 2022,
+  doi = "https://doi.org/10.1016/j.scitotenv.2022.156262",
+  repository_link = "https://doi.org/10.5281/zenodo.6611007"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "A global test of the subsidized island biogeography hypothesis",
+  authors = c("A. Menegotto","T.F. Rangel","J. Schrader","P. Weigelt","H. Kreft"),
+  journal = "Global Ecology and Biogeography",
+  volume = 29,
+  pages = "320-330",
+  year = 2020,
+  doi = "https://doi.org/10.1111/geb.13032",
+  repository_link = "https://doi.org/10.5281/zenodo.3512050"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "Benthic habitats do show a significant latitudinal diversity gradient: A comment on Kinlock et al. (2018)",
+  authors = c("A. Menegotto","M.N. Kurtz","P.C. Lana"),
+  journal = "Global Ecology and Biogeography",
+  volume = 28,
+  pages = "1712-1717",
+  year = 2019,
+  doi = "https://doi.org/10.1111/geb.12970",
+  repository_link = "https://doi.org/10.5281/zenodo.3245484"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "The scale‐dependent effect of environmental filters on species turnover and nestedness in an estuarine benthic community",
+  authors = c("A. Menegotto","C.S. Dambros","S.A. Netto"),
+  journal = "Ecology",
+  volume = 100,
+  pages = "e02721",
+  year = 2019,
+  doi = "https://doi.org/10.1002/ecy.2721",
+  repository_link = "https://doi.org/10.5281/zenodo.2588430"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "Mapping knowledge gaps in marine diversity reveals a latitudinal gradient of missing species richness",
+  authors = c("A. Menegotto","T.F. Rangel"),
+  journal = "Nature Communications",
+  volume = 9,
+  pages = 4713,
+  year = 2018,
+  doi = "https://doi.org/10.1038/s41467-018-07217-7",
+  repository_link = "https://github.com/AndreMenegotto/SpatialGaps"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "Detecting Multiple States of Trophic Connectivity Between Mangroves and Salt Marshes",
+  authors = c("A.M. Domingos","P.C. Lana"),
+  journal = "Ecosystems",
+  volume = 20,
+  pages = "1179–1189",
+  year = 2017,
+  doi = "https://doi.org/10.1007/s10021-016-0101-0"
+))
+
+
+cat(article_html <- generate_article_html(
+  title = "Effects of Artificial Breaching of a Temporarily Open/Closed Estuary on Benthic Macroinvertebrates (Camacho Lagoon, Southern Brazil)",
+  authors = c("S.A. Netto","A.M. Domingos","M.N. Kurtz"),
+  journal = "Estuaries and Coasts",
+  volume = 35,
+  pages = "1069–1081",
+  year = 2012,
+  doi = "https://doi.org/10.1007/s12237-012-9488-9"
+))
+
+```
+
+<p>
+
+<!-- Fim -->

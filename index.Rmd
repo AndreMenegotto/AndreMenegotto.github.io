@@ -1,0 +1,124 @@
+---
+title: "Home"
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
+
+```{css, echo=FALSE}
+
+.container {
+  padding-top: 70px !important;
+  display: flex;
+  align-items: top;
+}
+
+.left {
+  width: 30%;
+  text-align: center;
+  padding-right: 20px;
+}
+
+.right {
+  width: 70%;
+  padding-left: 50px;
+}
+
+.profile-pic {
+  width: 290px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  margin-top: 5px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #333;
+  border-bottom: none !important;
+  display: inline-block; /* Permite aplicar transform */
+  transition: transform 0.2s ease-in-out; /* Suaviza o efeito */
+}
+
+.social-icons a:hover{
+ transform: scale(1.3)
+}
+
+h3 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+h4 {
+  text-transform: none !important;
+  margin-top: 0 !important;
+}
+
+a:link {
+  border: none;
+  text-decoration: none;
+}
+```
+
+```{css}
+d-title {
+    display: none !important;
+  }
+```
+
+<!-- display: none;
+visibility: hidden;
+-->
+
+```{=html}
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</head>
+
+<div class="container">
+  <div class="left">
+    <img src="./images/profile.png" alt="Minha Foto" class="profile-pic">
+    <h3>André Menegotto</h3>
+    <h4>MSCA Researcher Fellow</h4>
+    <div class="social-icons">
+      <a href="https://bsky.app/profile/andremenegotto.bsky.social" target="_blank">
+        <i class="fa-brands fa-bluesky"></i>
+      </a>
+      <a href="https://github.com/AndreMenegotto" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://orcid.org/0000-0002-8510-687X" target="_blank">
+        <i class="ai ai-orcid"></i>
+      </a>
+      <a href="https://scholar.google.com/citations?user=H-bQT6EAAAAJ&hl=en&oi=ao" target="_blank">
+        <i class="fa-brands fa-google-scholar"></i>
+      </a>
+      <a href="https://www.webofscience.com/wos/author/record/HCH-8367-2022" target="_blank">
+        <i class="ai ai-clarivate"></i>
+      </a>
+
+    </div>
+  </div>
+  <div class="right">
+    <p style="text-align:justify;">I am a <b>Marine Macroecologist</b> interested in understating the diversity patterns in the global ocean, quantifying biodiversity knowledge gaps, and assessing anthropogenic impacts on marine ecosystems. I work extensively with global biodiversity data, R programming, spatial analyses, computational simulations, and synthesis techniques.</p>
+    <p style="text-align:justify;">I am currently a MSCA Fellow at the University of Sheffield (2024-2026), collaborating with the MNCN-CSIC. Specifically, I am working with <a href="https://shefmeme.org/" target="_blank" style="color:#00008B;">Tom Webb</a> and <a href="https://jhortal.com/" target="_blank" style="color:#00008B;">Joaquín Hortal</a> on the MarineGaps project, which aims to map sample coverage for marine species and propose solutions to reduce or account for the spatial bias in big biodiversity databases.</p>
+    <p style="text-align:justify;">Previously, I was a Juan de la Cierva Fellow in Spain at the Universidad de Madrid (2022–2024) and a Research Fellow in Brazil at the Universidade Federal de Goiás (2019–2022). For more details about my previous research, please visit the Publications page. If you are interested in discussing any of the topics mentioned above, feel free to contact me at: a.menegotto [at] sheffield.ac.uk.</p>
+  </div>
+</div>
+```

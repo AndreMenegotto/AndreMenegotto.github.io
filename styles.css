@@ -1,0 +1,33 @@
+.site-footer {
+    text-align: left;
+    font-size: 14px;
+    padding: 10px;
+    color: #666; /* Cor do texto */
+    /*background-color: #333; Cor de fundo #f8f8f8*/
+    border-top: 1px solid #ccc; /* Linha acima do rodapé */
+    /*position: fixed;*/
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%; /* Garante que não ultrapasse a tela */
+    box-sizing: border-box; /* Evita que padding aumente a largura */
+    height: 40px;
+}
+
+d-article {
+  grid-template-columns: [screen-start] 1fr [text-start kicker-end] 
+    2% 2% 2% 2% 2% 2% 2% 2% [text-end gutter-start] 
+    2% [middle-end] 2% [page-end gutter-end] 1fr [screen-end];
+  grid-column-gap: 10%;
+}
+
+d-article {
+  padding-right: 5%;
+}
+
+d-title {
+  display: block;
+  margin-left: 0 !important;
+  padding-left: 10%; /* Ajuste conforme necessário */
+}
+

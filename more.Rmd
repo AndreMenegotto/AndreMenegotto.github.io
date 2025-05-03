@@ -1,0 +1,143 @@
+---
+title: "More"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{css, echo=FALSE}
+
+.line{
+  border-bottom: 2px solid grey;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  align-items: center;
+}
+```
+
+
+<!--- https://birming.com/bluesky-widget/ --->
+
+<b><font size="5">iNaturalist records</font></b>
+
+I am an iNat enthusiast! Here you can find some of my last observations.
+
+```{=html}
+
+  <style type="text/css" media="screen">
+  .inat-widget { font-family: Georgia, serif; padding: 10px; line-height: 1;}
+  .inat-widget-header {margin-bottom: 10px;}
+  .inat-widget td {vertical-align: top; padding-bottom: 10px;}
+  .inat-label { color: #888; }
+  .inat-meta { font-size: smaller; margin-top: 3px; line-height: 1.2;}
+  .inat-observation-body, .inat-user-body { padding-left: 10px; }
+  .inat-observation-image {text-align: center;}
+  .inat-observation-image img, .inat-user-image img { max-width: 80px; }
+  .inat-observation-image img { vertical-align: middle; }
+  .inat-widget-small .inat-observation-image { display:block; float: left; margin: 0 10px 3px 0; height:80px;}
+  .inat-label, .inat-value, .inat-user { font-family: "Trebuchet MS", Arial, sans-serif; padding-left: 0 !important; }
+  .inat-user-body {vertical-align: middle;}
+  .inat-widget td.inat-user-body {vertical-align: middle;}
+  .inat-widget .inat-footer td.inat-value {vertical-align: middle; padding-left: 10px; }
+  .inat-widget .inat-footer {border-bottom: 0 !important;}
+  </style>
+  <div class="inat-widget">
+    <div class="inat-widget-header">
+      <a href="https://www.inaturalist.org" target="_blank"><img alt="iNaturalist" src="https://www.inaturalist.org/assets/logo-small.png" /></a>  
+    </div>
+  <script type="text/javascript" charset="utf-8" src="https://www.inaturalist.org/observations/andre_menegotto.widget?layout=small&limit=12&order=desc&order_by=observed_on"></script>
+  <table class="inat-footer">
+    <tr class="inat-user">
+      <td class="inat-value">
+        <strong>
+            <a href="https://www.inaturalist.org/observations?place_id=any&user_id=andre_menegotto&verifiable=any">See all my iNat observations »</a>
+        </strong>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(() => {
+      document.querySelectorAll('.inat-widget a').forEach(link => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      });
+    }, 2000); // Aguarda 2 segundos para garantir que os links foram carregados
+  });
+</script>
+
+```
+
+```{=html}
+<div class="line"></div>
+```
+
+<br>
+<b><font size="5">AquaMaps in R</font></b>
+
+If you want to download the modeled distribution of marine species from the <a href="https://aquamaps.org/" target="_blank">AquaMaps</a> web site in R using the 'raquamaps' package, I corrected some bugs and updated the *nativerange* function.
+
+I am not the original developer of the package, so you can use this updated function by installing my forked version, as shown below:
+
+```{r, eval=FALSE, echo=TRUE}
+
+# Install the raquamaps package from my github with this command
+library("devtools")
+install_github("AndreMenegotto/raquamaps")
+
+# Choose a species and download its map ("Mugil liza" as an example)
+library(raquamaps)
+native_range_df <- nativerange(latinname = "Mugil liza")
+
+# Rasterize the output
+library(terra)
+cells <- vect(native_range_df$hspec, geom = c("Center.Long", "Center.Lat"), crs = "EPSG:4326")
+r <- rast(res=.5, vals=0, crs="EPSG:4326")
+map <- rasterize(cells, r, field = "Overall.Probability")
+map <- project(map, "+proj=robin")
+
+# Plot the map
+library(rnaturalearth)
+land <- ne_download(scale = 110, type = "land", category = "physical", returnclass = "sv")
+land <- project(land, "+proj=robin")
+
+plot(land, col="grey80", border="transparent", axes=F)
+plot(map, add=T, plg=list(size=c(.75,.5)))
+plot(graticule(360, 180, "+proj=robin"), labels=F, lwd=.75, add=T)
+plot(graticule(60, 45, "+proj=robin"), labels=F, lwd=.5, lty=2, add=T)
+```
+
+<figure style="text-align: center;">
+  <img src="G:/My Drive/Andre/Ideias/myWebSite/images/Mliza_map.png" style="width:70%">
+  <figcaption>Environmental suitability of <i>Mugil liza</i> according to AquaMaps</figcaption>
+</figure>
+
+```{=html}
+<div class="line"></div>
+```
+
+<br>
+<b><font size="5">Educational outreach for kids</font></b>
+
+Together with the amazing <a href="http://lattes.cnpq.br/3907235063117463" target="_blank">Milena Diniz</a>, I wrote an article for kids explaining the concept of citizen science and showing how to use the iNaturalist platform to explore the biodiversity around us.
+
+The article, titled <a href="https://chc.org.br/artigo/natureza-digital/" target="_blank">"Digital Nature"</a>, is available in Portuguese for subscribers of '*Ciência Hoje das Crianças*'.
+
+
+```{=html}
+<div class="line"></div>
+```
+
+<br>
+<b><font size="5">Sampling simulation</font></b>
+
+If you would like to test how sampling bias in your dataset could affect species richness estimates, check out our <a href="https://github.com/AndreMenegotto/MarineSampling" target="_blank">sampling simulation program</a>. Below is an example using brittle stars in the Atlantic Ocean, published <a href="https://doi.org/10.1111/geb.13952" target="_blank">here</a>.
+
+<figure style="text-align: center;">
+  <img src="G:/My Drive/Andre/Ideias/myWebSite/images/SampSim.png" style="width:90%">
+  <figcaption>Example of the sampling simulation</figcaption>
+</figure>
