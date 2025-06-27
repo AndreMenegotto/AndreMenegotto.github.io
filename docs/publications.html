@@ -2187,22 +2187,78 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <!-- Comandos para estruturar a página -->
 <style>
+
+/* Layout padrão: texto e dois badges em três colunas */
+
 .article {
   display: grid;
-  grid-row-gap: 0.4em;
+  grid-template-columns: 1fr auto auto;
   grid-column-gap: 2.5em;
-  grid-template-columns: 1fr 4em 4em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  align-items: start;
   max-width: 100%;
 }
 
-.article > *:nth-child(1) {
-  margin-right: 3em; /* Adiciona um espaçamento maior entre a primeira e a segunda coluna */
+/* Texto da publicação */
+.article-text {
+  margin-right: 1em;
 }
 
+/* Badge individuais */
+.article-badges {
+    display: flex;
+    justify-content: space-around;
+    gap: 1em;
+    margin-top: 0.3em;
+    margin-bottom: 1.8em;
+}
+
+/* Esconde o container que só será usado em modo responsivo */
+.article-badge-container {
+  display: none;
+}
+
+.article-badge.desktop {
+  display: block;
+}
+
+
+/* RESPONSIVO: texto em cima, badges lado a lado abaixo */
+@media screen and (max-width: 768px) {
+  .article {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .article-text {
+    width: 100%;
+  }
+  
+  .article-text p {
+    margin-bottom: 0.3em;
+  }
+
+  .article-badge-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 1em;
+    width: 100%;
+    margin-top: -0.3em;   /* aproxima os badges do texto */
+    margin-bottom: 4em; 
+  }
+
+/* Esconde os badges individuais do modo desktop */
+  .article-badge.desktop {
+    display: none;
+  }
+}
+
+
+/* Estilos adicionais */
 span.a1 {
   color: #003366;
-    font-size: 20px;
+  font-size: 20px;
 }
 
 span.a2 {
@@ -2231,7 +2287,6 @@ p.space {
   font-size: 15px;
   text-align: justify;
 }
-
 </style>
 <!-- Comando necessário para visualizar o badge do dimensions e altmetrics -->
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
@@ -2252,82 +2307,277 @@ e não aparecerá no HTML gerado
 <h2 id="peer-reviewed-publications">Peer-reviewed publications</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1038/s42003-025-07888-1" target="_blank">Fundamental questions in meiofauna research highlight how small but ubiquitous animals can improve our understanding of Nature</a></span><br>A. Martínez, S. Bonaglia, M. Di Domenico, G. Fonseca, J. Ingels, K.M. Jörger, C. Laumer, F. Leasi, D. Zeppilli, E. Baldrighi, H. Bik, D. Cepeda, M. Curini-Galletti, A.D. Cutter, G. Santos, S. Fattorini, D. Frisch, S. Gollner, U. Jondelius, A. Kerbl, K.M. Kocot, N. Majdi, S. Mammola, J.M. Martín-Durán, A. Menegotto, P.A. Montagna, F.J.A. Nascimento, N. Puillandre, A. Rognant, N. Sánchez, I.R. Santos, A. Schmidt-Rhaesa, M. Schratzberger, F. Semprucci, M. Shimabukuro, P.J. Somerfield, T.H. Struck, M.V. Sørensen, A. Wallberg, K. Worsaae, H. Yamasaki, D. Fontaneto. <i>Communications Biology</i>, v. 8, p. 449, 2025.<br><span class="a2"><a href="https://doi.org/10.17605/OSF.IO/7G2QX" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1038/s42003-025-07888-1" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1038/s42003-025-07888-1"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1038/s42003-025-07888-1" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1038/s42003-025-07888-1"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1038/s42003-025-07888-1" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1038/s42003-025-07888-1"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1111/geb.13952" target="_blank">Sampling Simulation in a Virtual Ocean Reveals Strong Sampling Effect in Marine Diversity Patterns</a></span><br>A. Menegotto, D.P. Tittensor, R.K. Colwell, T.F. Rangel. <i>Global Ecology and Biogeography</i>, v. 34, p. e13952, 2025.<br><span class="a2"><a href="https://doi.org/10.5281/zenodo.14501756" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1111/geb.13952" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/geb.13952"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1111/geb.13952" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/geb.13952"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1111/geb.13952" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/geb.13952"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1111/ecog.07006" target="_blank">Shallow coverage in shallow waters: the incompleteness of intertidal species inventories in biodiversity database records</a></span><br>J. Thyrring, L.S. Peck, M.K. Sejr, J.M. Węsławski, C.D.G. Harley, A. Menegotto. <i>Ecography</i>, v. 2024, p. e07006, 2024.<br><span class="a2"><a href="https://doi.org/10.5281/zenodo.13128761" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1111/ecog.07006" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/ecog.07006"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1111/ecog.07006" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/ecog.07006"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1111/ecog.07006" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/ecog.07006"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1111/gcb.17375" target="_blank">Island biodiversity in peril: Anticipating a loss of mammals’ functional diversity with future species extinctions</a></span><br>S. Llorente-Culebras, C.P. Carmona, W.D. Carvalho, A. Menegotto, R. Molina-Venegas, R.J. Ladle, A.M.C. Santos. <i>Global Change Biology</i>, v. 30, p. e17375, 2024.<br><span class="a2"><a href="https://doi.org/10.5281/zenodo.11220273" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1111/gcb.17375" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/gcb.17375"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1111/gcb.17375" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/gcb.17375"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1111/gcb.17375" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/gcb.17375"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1073/pnas.2211974120" target="_blank">Landscape dynamics and diversification of the megadiverse South American freshwater fish fauna</a></span><br>F.A.S. Cassemiro, J.S. Albert, A. Antonelli, A. Menegotto, R.O. Wüest, F. Cerezer, M.T.P. Coelho, R.E. Reis, M. Tan, V. Tagliacollo, D. Bailly, V.F.B. Silva, A. Frota, W.J. Graça, R. Ré, T. Ramos, A.G. Oliveira, M.S. Dias, R.K. Colwell, T.F. Rangel, C.H. Graham. <i>Proceedings of the National Academy of Sciences</i>, v. 120, p. e2211974120, 2023.<br><span class="a2"><a href="https://doi.org/10.5281/zenodo.6672927" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1073/pnas.2211974120" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1073/pnas.2211974120"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1073/pnas.2211974120" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1073/pnas.2211974120"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1073/pnas.2211974120" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1073/pnas.2211974120"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1007/s00227-022-04146-4" target="_blank">Carbon budget trends in octocorals: a literature review with data reassessment and a conceptual framework to understand their resilience to environmental changes</a></span><br>P. Derviche, A. Menegotto, P.C. Lana. <i>Marine Biology</i>, v. 169, p. 159, 2022.<br><span class="a2"><a href="https://github.com/pderviche/Octocoral-feeding-ecology" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1007/s00227-022-04146-4" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1007/s00227-022-04146-4"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1007/s00227-022-04146-4" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1007/s00227-022-04146-4"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1007/s00227-022-04146-4" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1007/s00227-022-04146-4"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1016/j.scitotenv.2022.156262" target="_blank">A new look at the potential role of marine plastic debris as a global vector of toxic benthic algae</a></span><br>I.P. Leite, A. Menegotto, P.C. Lana, L.L. Mafra-Jr. <i>Science of The Total Environment</i>, v. 838, p. 156262, 2022.<br><span class="a2"><a href="https://doi.org/10.5281/zenodo.6611007" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1016/j.scitotenv.2022.156262" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1016/j.scitotenv.2022.156262"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1016/j.scitotenv.2022.156262" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1016/j.scitotenv.2022.156262"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1016/j.scitotenv.2022.156262" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1016/j.scitotenv.2022.156262"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1111/geb.13032" target="_blank">A global test of the subsidized island biogeography hypothesis</a></span><br>A. Menegotto, T.F. Rangel, J. Schrader, P. Weigelt, H. Kreft. <i>Global Ecology and Biogeography</i>, v. 29, p. 320-330, 2020.<br><span class="a2"><a href="https://doi.org/10.5281/zenodo.3512050" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1111/geb.13032" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/geb.13032"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1111/geb.13032" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/geb.13032"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1111/geb.13032" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/geb.13032"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1111/geb.12970" target="_blank">Benthic habitats do show a significant latitudinal diversity gradient: A comment on Kinlock et al. (2018)</a></span><br>A. Menegotto, M.N. Kurtz, P.C. Lana. <i>Global Ecology and Biogeography</i>, v. 28, p. 1712-1717, 2019.<br><span class="a2"><a href="https://doi.org/10.5281/zenodo.3245484" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1111/geb.12970" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/geb.12970"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1111/geb.12970" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/geb.12970"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1111/geb.12970" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1111/geb.12970"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1002/ecy.2721" target="_blank">The scale‐dependent effect of environmental filters on species turnover and nestedness in an estuarine benthic community</a></span><br>A. Menegotto, C.S. Dambros, S.A. Netto. <i>Ecology</i>, v. 100, p. e02721, 2019.<br><span class="a2"><a href="https://doi.org/10.5281/zenodo.2588430" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1002/ecy.2721" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1002/ecy.2721"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1002/ecy.2721" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1002/ecy.2721"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1002/ecy.2721" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1002/ecy.2721"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1038/s41467-018-07217-7" target="_blank">Mapping knowledge gaps in marine diversity reveals a latitudinal gradient of missing species richness</a></span><br>A. Menegotto, T.F. Rangel. <i>Nature Communications</i>, v. 9, p. 4713, 2018.<br><span class="a2"><a href="https://github.com/AndreMenegotto/SpatialGaps" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Open_Research-blue"></a></span>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1038/s41467-018-07217-7" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1038/s41467-018-07217-7"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1038/s41467-018-07217-7" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1038/s41467-018-07217-7"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1038/s41467-018-07217-7" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1038/s41467-018-07217-7"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1007/s10021-016-0101-0" target="_blank">Detecting Multiple States of Trophic Connectivity Between Mangroves and Salt Marshes</a></span><br>A.M. Domingos, P.C. Lana. <i>Ecosystems</i>, v. 20, p. 1179–1189, 2017.<br><br><br>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1007/s10021-016-0101-0" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1007/s10021-016-0101-0"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1007/s10021-016-0101-0" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1007/s10021-016-0101-0"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1007/s10021-016-0101-0" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1007/s10021-016-0101-0"></span>
+</div>
+</div>
 </div>
 <div class="article">
+<div class="article-text">
 <p class="space">
 <span class="a1"><a href="https://doi.org/10.1007/s12237-012-9488-9" target="_blank">Effects of Artificial Breaching of a Temporarily Open/Closed Estuary on Benthic Macroinvertebrates (Camacho Lagoon, Southern Brazil)</a></span><br>S.A. Netto, A.M. Domingos, M.N. Kurtz. <i>Estuaries and Coasts</i>, v. 35, p. 1069–1081, 2012.<br><br><br>
 </p>
-<span class="__dimensions_badge_embed__" data-doi="10.1007/s12237-012-9488-9" data-style="small_circle"></span><span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1007/s12237-012-9488-9"></span>
+</div>
+<div class="article-badge desktop">
+<span class="__dimensions_badge_embed__" data-doi="10.1007/s12237-012-9488-9" data-style="small_circle"></span>
+</div>
+<div class="article-badge desktop">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1007/s12237-012-9488-9"></span>
+</div>
+<div class="article-badge-container">
+<div class="article-badge">
+<span class="__dimensions_badge_embed__" data-doi="10.1007/s12237-012-9488-9" data-style="small_circle"></span>
+</div>
+<div class="article-badge">
+<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="10.1007/s12237-012-9488-9"></span>
+</div>
+</div>
 </div>
 </div>
 <p>

@@ -12,22 +12,78 @@ knitr::opts_chunk$set(echo = TRUE)
 <!-- Comandos para estruturar a página -->
 
 <style>
+
+/* Layout padrão: texto e dois badges em três colunas */
+
 .article {
   display: grid;
-  grid-row-gap: 0.4em;
+  grid-template-columns: 1fr auto auto;
   grid-column-gap: 2.5em;
-  grid-template-columns: 1fr 4em 4em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  align-items: start;
   max-width: 100%;
 }
 
-.article > *:nth-child(1) {
-  margin-right: 3em; /* Adiciona um espaçamento maior entre a primeira e a segunda coluna */
+/* Texto da publicação */
+.article-text {
+  margin-right: 1em;
 }
 
+/* Badge individuais */
+.article-badges {
+    display: flex;
+    justify-content: space-around;
+    gap: 1em;
+    margin-top: 0.3em;
+    margin-bottom: 1.8em;
+}
+
+/* Esconde o container que só será usado em modo responsivo */
+.article-badge-container {
+  display: none;
+}
+
+.article-badge.desktop {
+  display: block;
+}
+
+
+/* RESPONSIVO: texto em cima, badges lado a lado abaixo */
+@media screen and (max-width: 768px) {
+  .article {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .article-text {
+    width: 100%;
+  }
+  
+  .article-text p {
+    margin-bottom: 0.3em;
+  }
+
+  .article-badge-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 1em;
+    width: 100%;
+    margin-top: -0.3em;   /* aproxima os badges do texto */
+    margin-bottom: 4em; 
+  }
+
+/* Esconde os badges individuais do modo desktop */
+  .article-badge.desktop {
+    display: none;
+  }
+}
+
+
+/* Estilos adicionais */
 span.a1 {
   color: #003366;
-    font-size: 20px;
+  font-size: 20px;
 }
 
 span.a2 {
@@ -56,7 +112,6 @@ p.space {
   font-size: 15px;
   text-align: justify;
 }
-
 </style>
 
 
@@ -141,7 +196,7 @@ generate_article_html <- function(title, authors, journal, volume, pages, year, 
   
   # Organizar autoria
   if(F){authors <- gsub("[.]","",authors)} # remover pontos
-  if(F){sapply(lapply(strsplit(authors, " "), rev), paste, collapse = " ")} # inverter ordem do sobrenome
+  if(F){sapply(lapply(strsplit(authors, " "), rev), paste, collapse = " ")}   # inverter ordem do sobrenome
   if(F)
   {
     pos <- grep("Menegotto|Domingos",authors)
@@ -152,6 +207,9 @@ generate_article_html <- function(title, authors, journal, volume, pages, year, 
   # Construir o HTML
   html <- paste0(
     '<div class="article">',
+    
+    # Texto
+    '<div class="article-text">',
     '<p class="space"><span class="a1"><a href="', doi, '" target="_blank">',
     title, '</a></span><br>',
     authors, '. <i>', journal, '</i>, v. ', volume, ', p. ', pages, ', ', year, '.<br>',
@@ -164,9 +222,26 @@ generate_article_html <- function(title, authors, journal, volume, pages, year, 
     {
       "<br><br>"
     },
-    '</p>',
-    '<span class="__dimensions_badge_embed__" data-doi="', simple_doi, '" data-style="small_circle"></span>',
-    '<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="', simple_doi, '"></span>',
+    '</p></div>',
+    
+    # Badges individuais para modo desktop
+    '<div class="article-badge desktop">',
+      '<span class="__dimensions_badge_embed__" data-doi="', simple_doi, '" data-style="small_circle"></span>',
+    '</div>',
+    '<div class="article-badge desktop">',
+      '<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="', simple_doi, '"></span>',
+    '</div>',
+
+    # Badges agrupados para modo responsivo
+    '<div class="article-badge-container">',
+      '<div class="article-badge">',
+        '<span class="__dimensions_badge_embed__" data-doi="', simple_doi, '" data-style="small_circle"></span>',
+      '</div>',
+      '<div class="article-badge">',
+        '<span class="altmetric-embed" data-badge-popover="bottom" data-link-target="_blank" data-badge-type="donut" data-doi="', simple_doi, '"></span>',
+      '</div>',
+    '</div>',
+
     '</div>'
   )
   return(html)
