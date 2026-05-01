@@ -127,7 +127,6 @@ e não aparecerá no HTML gerado
 -->
 
 
-<!--
 ## Preprints
 
 ```{r, results='asis', echo=FALSE}
@@ -174,15 +173,14 @@ year, doi, repository_link = NULL) {
 
 ### Articles
 cat(article_html <- generate_article_html(
-  title = "Fundamental questions in meiofauna—how small but ubiquitous animals can help to better understand Nature",
-  authors = c("A. Martínez","S. Bonaglia","M. Di Domenico","G. Fonseca","J. Ingels","K.M. Jörger","C. Laumer","F. Leasi","D. Zeppilli","E. Baldrighi","H. Bik","D. Cepeda","M. Curini-Galletti","A.D. Cutter","G. Santos","S. Fattorini","D. Frisch","S. Gollner","U. Jondelius","A. Kerbl","K.M. Kocot","N. Majdi","S. Mammola","J.M. Martín-Durán","A. Menegotto","P.A. Montagna","F.J.A. Nascimento","N. Puilandre","A. Rognant","N. Sánchez","I. Santos","A. Schmidt-Rhaesa","M. Schratzberger","F. Semprucci","M. Shimabukuro","P.J. Somerfield","T.H. Struck","M.V. Sørensen","A. Wallberg","K. Worsaae","H. Yamasaki","D. Fontaneto"),
-  journal = "EcoEvoRxiv",
-  year = 2023,
-  doi = "https://doi.org/10.32942/X2WP43",
-  repository_link = "https://osf.io/3jgf8/"
+  title = "How similar are species names and why does this matter for biodiversity data",
+  authors = c("A. Menegotto","C. Ronquillo","J. Hortal","T.J. Webb"),
+  journal = "ARPHA Preprints",
+  year = 2026,
+  doi = "https://doi.org/10.3897/arphapreprints.e196971",
+  repository_link = "https://github.com/AndreMenegotto/SciNames-similarity"
 ))
 ```
--->
 
 
 ## Peer-reviewed publications
