@@ -248,6 +248,18 @@ generate_article_html <- function(title, authors, journal, volume, pages, year, 
 
 ### Articles
 cat(article_html <- generate_article_html(
+  title = "Patterns and Drivers of Knowledge Gaps in Global Databases of Mammal Traits",
+  authors = c("S. Llorente-Culebras","R. Correia","A. Menegotto","A.M.C. Santos","R.J. Ladle"),
+  journal = "Diversity and Distributions",
+  volume = 32,
+  pages = "e70184",
+  year = 2026,
+  doi = "https://doi.org/10.1111/ddi.70184",
+  repository_link = "https://doi.org/10.5061/dryad.05qfttfdq"
+))
+
+
+cat(article_html <- generate_article_html(
   title = "Fundamental questions in meiofauna research highlight how small but ubiquitous animals can improve our understanding of Nature",
   authors = c("A. Martínez","S. Bonaglia","M. Di Domenico","G. Fonseca","J. Ingels","K.M. Jörger","C. Laumer","F. Leasi","D. Zeppilli","E. Baldrighi","H. Bik","D. Cepeda","M. Curini-Galletti","A.D. Cutter","G. Santos","S. Fattorini","D. Frisch","S. Gollner","U. Jondelius","A. Kerbl","K.M. Kocot","N. Majdi","S. Mammola","J.M. Martín-Durán","A. Menegotto","P.A. Montagna","F.J.A. Nascimento","N. Puillandre","A. Rognant","N. Sánchez","I.R. Santos","A. Schmidt-Rhaesa","M. Schratzberger","F. Semprucci","M. Shimabukuro","P.J. Somerfield","T.H. Struck","M.V. Sørensen","A. Wallberg","K. Worsaae","H. Yamasaki","D. Fontaneto"),
   journal = "Communications Biology",
