@@ -4,8 +4,6 @@ title: "Publications"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
-
 ```
 
 
@@ -121,12 +119,12 @@ p.space {
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
 
-<!-- 
+<!--
 Este texto está comentado 
 e não aparecerá no HTML gerado 
 -->
 
-
+<!--
 ## Preprints
 
 ```{r, results='asis', echo=FALSE}
@@ -181,7 +179,7 @@ cat(article_html <- generate_article_html(
   repository_link = "https://github.com/AndreMenegotto/SciNames-similarity"
 ))
 ```
-
+-->
 
 ## Peer-reviewed publications
 
@@ -247,6 +245,18 @@ generate_article_html <- function(title, authors, journal, volume, pages, year, 
 
 
 ### Articles
+cat(article_html <- generate_article_html(
+  title = "How similar are species names and why does this matter for biodiversity data",
+  authors = c("A. Menegotto","C. Ronquillo","J. Hortal","T.J. Webb"),
+  journal = "Biodiversity Data Journal",
+  volume = 14,
+  pages = "e196932",
+  year = 2026,
+  doi = "https://doi.org/10.3897/BDJ.14.e196932",
+  repository_link = "https://doi.org/10.5281/zenodo.20796132"
+))
+
+
 cat(article_html <- generate_article_html(
   title = "Patterns and Drivers of Knowledge Gaps in Global Databases of Mammal Traits",
   authors = c("S. Llorente-Culebras","R. Correia","A. Menegotto","A.M.C. Santos","R.J. Ladle"),
